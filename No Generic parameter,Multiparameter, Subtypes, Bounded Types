@@ -1,0 +1,150 @@
+package com.Generics;
+
+@SuppressWarnings("unchecked")
+
+class MyArray <T>{
+        T A[]=(T[])new Object[10];
+        int length=0;
+    public void append(T v){
+        A[length++]=v;
+    }
+    public void display(){
+        for (int i=0;i<length;i++){
+            System.out.println(A[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        MyArray myArray=new MyArray<>(); //no parameters given <inside> then myArray wil be object of any type.
+
+        myArray.append(10);
+        myArray.append(new String("Harish"));
+        myArray.append(30);
+
+        myArray.display();
+    }
+}
+//Multiparameter
+package com.Generics;
+
+@SuppressWarnings("unchecked")
+
+class MyArray < T , v>{   //Multiparameter
+        T A[]=(T[])new Object[10];
+        int length=0;
+    public void append(T v){
+        A[length++]=v;
+    }
+    public void display(){
+        for (int i=0;i<length;i++){
+            System.out.println(A[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        MyArray<Integer,String> myArray=new MyArray<>(); //Multiparameter
+
+        
+        myArray.display();
+    }
+}
+//Sub types
+package com.Generics;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+    }
+}
+class MyArray < T > {
+    T A[] = (T[]) new Object[10];
+    int length = 0;
+
+    public void append(T v) {
+        A[length++] = v;
+    }
+
+    public void display() {
+        for (int i = 0; i < length; i++) {
+            System.out.println(A[i]);
+        }
+    }
+}
+class MyArray2 extends MyArray{
+    //MyArray2 is parameter of Object.
+}
+class MyArray3 extends MyArray<Integer>{
+//MyArray3 takes only Integers but MyArray is of any parameter.
+}
+class MyArray4<T> extends MyArray<T>{
+
+}
+//Bounded Types
+package com.Generics;
+
+class A{}
+class B extends A{}
+class c extends A{}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        MyArray<Integer> myArray=new MyArray<>();
+
+        myArray.append(10);
+        myArray.append(20);
+    }
+}
+class MyArray < T extends Number> { //allows only Number class(int , float , double ,etc,...)
+//class MyArray<T extends A>//class A
+//class MyArray<T extends B>
+//class MyArray<T extends C>
+    T A[] = (T[]) new Object[10];
+    int length = 0;
+
+    public void append(T v) {
+        A[length++] = v;
+    }
+
+    public void display() {
+        for (int i = 0; i < length; i++) {
+            System.out.println(A[i]);
+        }
+    }
+}
+//Interface
+package com.Generics;
+
+interface A{}
+class B implements A{}
+class c implements A{}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        MyArray<A> myArray=new MyArray<>();
+
+    }
+}
+class MyArray<T extends A>
+//class MyArray<T extends B>
+//class MyArray<T extends C>
+{
+    T A[] = (T[]) new Object[10];
+    int length = 0;
+
+    public void append(T v) {
+        A[length++] = v;
+    }
+
+    public void display() {
+        for (int i = 0; i < length; i++) {
+            System.out.println(A[i]);
+        }
+    }
+}
+
+
