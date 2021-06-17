@@ -1,0 +1,13 @@
+package com.Generics;
+
+public class GenericDemo <T>{
+    T data[]=(T[])new Object[3];
+
+    public static void main(String[] args) {
+        GenericDemo<String>genericDemo=new GenericDemo<>();
+        genericDemo.data[0]="Hi";
+        genericDemo.data[1]="hello";
+        genericDemo.data[2]=10;
+        String str=genericDemo.data[0];
+    }
+}
