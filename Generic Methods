@@ -2,7 +2,9 @@ package com.Generics;
 
 class GenericDemo {
     //static<E> void show(E[] list ){
-    static<E> void show(E... list ){
+    //static<E> void show(E... list ){
+    static<E extends Number> void show(E... list ){ //Bound type also works
+
         for (E x:list) {
             System.out.println(x);
         }
@@ -11,8 +13,11 @@ class GenericDemo {
         //show(new String[]{"harish","kumar"});
         //show(new Integer[]{10,20,30});
 
-        show("harish","kumar");
+        //show("harish","kumar");
+        //show(10,20,30);
+        
+        show(10.5f,30.5f,44.4f);
         show(10,20,30);
-
+        
     }
 }
