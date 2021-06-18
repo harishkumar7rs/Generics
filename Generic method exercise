@@ -1,0 +1,91 @@
+//Method
+package com.Generics;
+class A{}
+class B extends A {}
+class c extends A {}
+
+
+public class Main {
+
+    static void fun(MyArray obj){ //Generic Method
+        obj.display();
+    }
+    public static void main(String[] args) {
+        MyArray<Integer> myArray1= new MyArray<>();
+        myArray1.append(10);
+        myArray1.append(20);
+        
+        MyArray<String> myArray2= new MyArray<>();
+        myArray2.append("harish");
+        myArray2.append("kumar");
+        
+        fun(myArray1);
+        fun(myArray2);
+    }
+}
+class MyArray<T >
+//class MyArray<T extends B>
+//class MyArray<T extends C>
+{
+    T A[] = (T[]) new Object[10];
+    int length = 0;
+
+    public void append(T v) {
+        A[length++] = v;
+    }
+
+    public void display() {
+        for (int i = 0; i < length; i++) {
+            System.out.println(A[i]);
+        }
+    }
+}
+//Wild Card(?),Upper bound(extends) ,lower Bound (super)
+package com.Generics;
+class A{}
+class B extends A {}
+class C extends B {}
+
+
+public class Main {
+
+    //static void fun(MyArray obj){ //Generic Method of any type no <T>
+    //static<T> void fun(MyArray<T> obj){ //Generic Method of any type no <T>
+    //static void fun(MyArray<?> obj){ // unbounded wild card Generic Method of any type argument
+    //static void fun(MyArray<? extends Number> obj){
+    //static void fun(MyArray<? super Number> obj){
+    static void fun(MyArray<? super C> obj){
+        obj.display();
+    }
+    public static void main(String[] args) {
+        MyArray<B> myArray1= new MyArray<>();
+        myArray1.append(10);
+        myArray1.append(20);
+
+        MyArray<C> myArray2= new MyArray<>();
+        myArray2.append("harish");
+        myArray2.append("kumar");
+
+        fun(myArray1);
+        fun(myArray2);//error takes only number not strings
+    }
+}
+class MyArray<T >
+//class MyArray<T extends B>
+//class MyArray<T extends C>
+{
+    T A[] = (T[]) new Object[10];
+    int length = 0;
+
+    public void append(T v) {
+        A[length++] = v;
+    }
+
+    public void display() {
+        for (int i = 0; i < length; i++) {
+            System.out.println(A[i]);
+        }
+    }
+}
+
+
