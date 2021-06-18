@@ -1,0 +1,18 @@
+package com.Generics;
+
+class GenericDemo {
+    //static<E> void show(E[] list ){
+    static<E> void show(E... list ){
+        for (E x:list) {
+            System.out.println(x);
+        }
+    }
+    public static void main(String[] args) {
+        //show(new String[]{"harish","kumar"});
+        //show(new Integer[]{10,20,30});
+
+        show("harish","kumar");
+        show(10,20,30);
+
+    }
+}
